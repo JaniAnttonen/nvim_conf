@@ -11,6 +11,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " vim polyglot, a big language package
 Plug 'sheerun/vim-polyglot'
 
+" Git stuff
+Plug 'airblade/vim-gitgutter'
+
 " Visual stuff
 Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'
@@ -41,5 +44,5 @@ syntax enable
 colorscheme night-owl
 
 let g:lightline = {'colorscheme': 'nightowl'}
-
+let NERDTreeShowHidden=1
 
