@@ -40,6 +40,19 @@ set expandtab
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
 
+" VSCode style Alt+j/k key mappings for moving rows up and down
+" Normal mode
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+
+" Insert mode
+inoremap <M-j> <ESC>:m .+1<CR>==gi
+inoremap <M-k> <ESC>:m .-2<CR>==gi
+
+" Visual mode
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
+
 syntax enable
 colorscheme night-owl
 
