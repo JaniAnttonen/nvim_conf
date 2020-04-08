@@ -3,10 +3,18 @@ call plug#begin('~/.vim/plugged')
 
 " coc does all the things with language servers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'haishanh/night-owl.vim'
+
+" File browser for vim
 Plug 'scrooloose/nerdtree'
+
+" Icons for different file types for nerdtree
 Plug 'ryanoasis/vim-devicons'
+
+" Hop between vim instances in different tmux panes
 Plug 'christoomey/vim-tmux-navigator'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " vim polyglot, a big language package
 Plug 'sheerun/vim-polyglot'
@@ -15,6 +23,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-gitgutter'
 
 " Visual stuff
+Plug 'haishanh/night-owl.vim'
 Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/artify.vim'
