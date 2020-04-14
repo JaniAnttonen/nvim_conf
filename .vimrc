@@ -4,6 +4,10 @@ call plug#begin('~/.vim/plugged')
 " coc does all the things with language servers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Git stuff
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 " File browser for vim
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -21,15 +25,12 @@ Plug 'junegunn/fzf.vim'
 " vim polyglot, a big language package
 Plug 'sheerun/vim-polyglot'
 
-" Git stuff
-Plug 'airblade/vim-gitgutter'
-
 " Visual stuff
 Plug 'haishanh/night-owl.vim'
 Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/artify.vim'
-Plug 'itchyny/vim-gitbranch'
+" Plug 'itchyny/vim-gitbranch'
 Plug 'macthecadillac/lightline-gitdiff'
 Plug 'maximbaz/lightline-ale'
 Plug 'albertomontesg/lightline-asyncrun'
@@ -43,6 +44,9 @@ endif
 
 " Show line numbers
 set number
+
+" Hide mode since shown in lightline
+set noshowmode
 
 " Update opened files on change
 set autoread
@@ -118,6 +122,17 @@ let g:lightline = {'colorscheme': 'nightowl'}
 " Nerd tree settings
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
+
 " Nerd tree toggle
 nmap <silent> f :NERDTreeToggle<CR>
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
