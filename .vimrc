@@ -25,12 +25,16 @@ Plug 'junegunn/fzf.vim'
 " vim polyglot, a big language package
 Plug 'sheerun/vim-polyglot'
 
+" LaTeX support
+Plug 'lervag/vimtex'
+
+" vim languagetool, grammar checking
+Plug 'rhysd/vim-grammarous'
+
 " Visual stuff
 Plug 'haishanh/night-owl.vim'
-Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/artify.vim'
-" Plug 'itchyny/vim-gitbranch'
 Plug 'macthecadillac/lightline-gitdiff'
 Plug 'maximbaz/lightline-ale'
 Plug 'albertomontesg/lightline-asyncrun'
@@ -73,6 +77,10 @@ set updatetime=300
 set cmdheight=2
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" Remap autocomplete to tab without hijacking
+inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
+inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
+
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
@@ -84,8 +92,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " gh - get hint on whatever's under the cursor
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -94,7 +102,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction<Paste>
-
 
 " VSCode style Alt+j/k key mappings for moving rows up and down
 " Normal mode
