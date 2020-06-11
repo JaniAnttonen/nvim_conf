@@ -35,6 +35,7 @@ Plug 'macthecadillac/lightline-gitdiff'
 Plug 'maximbaz/lightline-ale'
 Plug 'albertomontesg/lightline-asyncrun'
 
+Plug 'janko-m/vim-test'
 call plug#end()
 
 " Set true color mode
@@ -82,10 +83,19 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gn :lnext<CR>
+nmap <silent> gN :lprevious<CR>
+
+" Better navigation between buffers
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
 
 " gh - get hint on whatever's under the cursor
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
+
+" Inline testing
+nmap T :TestNearest<CR>
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -122,6 +132,11 @@ let g:lightline = {'colorscheme': 'nightowl'}
 " Nerd tree settings
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
+
+" TexLive with vimtex
+let g:vimtex_view_general_viewer = 'sumatraPDF'
+let g:vimtex_view_general_options = '-reuse-instance @pdf'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 " Nerd tree toggle
 nmap <silent> f :NERDTreeToggle<CR>
