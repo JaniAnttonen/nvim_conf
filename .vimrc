@@ -40,6 +40,35 @@ Plug 'maximbaz/lightline-ale'
 Plug 'albertomontesg/lightline-asyncrun'
 
 Plug 'janko-m/vim-test'
+
+" Minimap
+" Plug 'severin-lemaignan/vim-minimap'
+
+" Editorconfig
+Plug 'editorconfig/editorconfig-vim'
+
+" Solidity linting
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install && yarn add prettier-plugin-solidity',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift',
+    \ 'solidity'] }
+
 call plug#end()
 
 " Set true color mode
@@ -88,6 +117,7 @@ command! -nargs=0 Format :call CocAction('format')
 " Remap keys for gotos
 "nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gd <Plug>(coc-definition)
+nnoremap <C-LeftMouse> <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
